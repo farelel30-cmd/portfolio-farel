@@ -1,18 +1,106 @@
-const menu = document.querySelector('.menu');
-const nav = document.querySelector('nav');
+document.addEventListener("DOMContentLoaded", function () {
 
-menu?.addEventListener('click', () => {
-  nav.classList.toggle('open');
+    // =========================
+    // NAVIGASI SMOOTH SCROLL
+    // =========================
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+
+    navLinks.forEach(function (link) {
+        link.addEventListener("click", function (event) {
+
+            const targetId = link.getAttribute("href");
+
+            if (!targetId || targetId === "#") {
+                return;
+            }
+
+            const target = document.querySelector(targetId);
+
+            if (target) {
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    });
+
+
+    // =========================
+    // TAHUN OTOMATIS
+    // =========================
+    const yearElement = document.getElementById("year");
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+
+    // =========================
+    // MENU AKTIF SAAT SCROLL
+    // =========================
+    const sections = document.querySelectorAll("section[id]");
+    const menuLinks = document.querySelectorAll('nav a[href^="#"]');
+
+    function updateActiveMenu() {
+
+        let currentSection = "";
+
+        sections.forEach(function (section) {
+
+            const sectionTop = section.offsetTop - 200;
+
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute("id");
+            }
+
+        });
+
+        menuLinks.forEach(function (link) {
+
+            const linkTarget = link.getAttribute("href");
+
+            if (linkTarget === "#" + currentSection) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+
+        });
+    }
+
+    window.addEventListener("scroll", updateActiveMenu);
+
+    updateActiveMenu();
+
+
+    // =========================
+    // TOMBOL BACK TO TOP
+    // =========================
+    const backToTop = document.querySelector(".back-to-top");
+
+    if (backToTop) {
+
+        window.addEventListener("scroll", function () {
+
+            if (window.scrollY > 500) {
+                backToTop.classList.add("show");
+            } else {
+                backToTop.classList.remove("show");
+            }
+
+        });
+
+        backToTop.addEventListener("click", function () {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+    }
+
 });
-
-document.querySelectorAll('nav a').forEach((link) => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-  });
-});
-
-const year = document.querySelector('#year');
-
-if (year) {
-  year.textContent = new Date().getFullYear();
-}
