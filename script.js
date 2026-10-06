@@ -3,9 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     // NAVIGASI SMOOTH SCROLL
     // =========================
+
     const navLinks = document.querySelectorAll('a[href^="#"]');
 
     navLinks.forEach(function (link) {
+
         link.addEventListener("click", function (event) {
 
             const targetId = link.getAttribute("href");
@@ -17,20 +19,25 @@ document.addEventListener("DOMContentLoaded", function () {
             const target = document.querySelector(targetId);
 
             if (target) {
+
                 event.preventDefault();
 
                 target.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
                 });
+
             }
+
         });
+
     });
 
 
     // =========================
     // TAHUN OTOMATIS
     // =========================
+
     const yearElement = document.getElementById("year");
 
     if (yearElement) {
@@ -41,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     // MENU AKTIF SAAT SCROLL
     // =========================
+
     const sections = document.querySelectorAll("section[id]");
     const menuLinks = document.querySelectorAll('nav a[href^="#"]');
 
@@ -69,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         });
+
     }
 
     window.addEventListener("scroll", updateActiveMenu);
@@ -79,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // =========================
     // TOMBOL BACK TO TOP
     // =========================
+
     const backToTop = document.querySelector(".back-to-top");
 
     if (backToTop) {
@@ -93,38 +103,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
+
         backToTop.addEventListener("click", function () {
 
             window.scrollTo({
                 top: 0,
                 behavior: "smooth"
             });
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
 
-const revealElements = document.querySelectorAll(".reveal");
-
-const revealObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-
-                // Supaya animasi hanya berjalan sekali
-                revealObserver.unobserve(entry.target);
-            }
         });
-    },
-    {
-        threshold: 0.15
-    }
-);
 
-revealElements.forEach((element) => {
-    revealObserver.observe(element);
-});
-        });
     }
+
+
+    // =========================
+    // SCROLL REVEAL
+    // =========================
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver(
+        function (entries) {
+
+            entries.forEach(function (entry) {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    // Animasi hanya dijalankan sekali
+                    revealObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+
+    revealElements.forEach(function (element) {
+        revealObserver.observe(element);
+    });
 
 });
