@@ -99,7 +99,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 top: 0,
                 behavior: "smooth"
             });
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
 
+const revealElements = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+
+                // Supaya animasi hanya berjalan sekali
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.15
+    }
+);
+
+revealElements.forEach((element) => {
+    revealObserver.observe(element);
+});
         });
     }
 
