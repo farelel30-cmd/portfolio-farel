@@ -708,3 +708,353 @@ radial-gradient(circle at 10% 80%,rgba(65,20,150,.18),transparent 30%),
     }
 
 }
+/* =========================================================
+   CANVA CASE STUDY
+   ========================================================= */
+
+.canva-project-hero,
+.canva-overview,
+.canva-skill-section,
+.canva-gallery-section,
+.canva-final {
+    position: relative;
+    padding: 110px 0;
+}
+
+
+/* HERO */
+
+.canva-project-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+}
+
+.canva-hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.canva-hero-text h1 {
+    margin: 18px 0;
+    font-size: clamp(52px, 7vw, 92px);
+    line-height: 0.98;
+    font-weight: 800;
+}
+
+.canva-hero-text h1 span {
+    color: #a84cff;
+    text-shadow: 0 0 30px rgba(168, 76, 255, 0.45);
+}
+
+.canva-hero-text p {
+    max-width: 650px;
+    color: #d7cde4;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.canva-hero-logo {
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.canva-hero-logo .hero-logo-glow {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(151, 60, 255, 0.3),
+        transparent 68%
+    );
+    filter: blur(10px);
+}
+
+.canva-hero-logo img {
+    position: relative;
+    z-index: 2;
+    width: min(280px, 80%);
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,.4));
+}
+
+
+/* OVERVIEW */
+
+.canva-overview {
+    background: rgba(19, 7, 42, .55);
+    border-top: 1px solid rgba(139,53,255,.2);
+    border-bottom: 1px solid rgba(139,53,255,.2);
+}
+
+.canva-overview h2,
+.canva-skill-section h2,
+.canva-gallery-section h2 {
+    margin: 10px 0 20px;
+    font-size: clamp(38px,5vw,62px);
+}
+
+.canva-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+    margin-top: 45px;
+}
+
+
+/* SKILLS */
+
+.canva-skill-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 80px;
+}
+
+.canva-skill-grid > div:first-child p {
+    max-width: 560px;
+    color: #d5cade;
+    line-height: 1.7;
+}
+
+.canva-skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.canva-skill-item {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 18px;
+    padding: 20px;
+    border-left: 2px solid #8d38d8;
+    background: linear-gradient(
+        90deg,
+        rgba(93,31,130,.2),
+        rgba(17,5,35,.3)
+    );
+    transition: .3s ease;
+}
+
+.canva-skill-item:hover {
+    transform: translateX(8px);
+    border-left-color: #bd6dff;
+}
+
+.canva-skill-item > span {
+    color: #9c4cff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.canva-skill-item h3 {
+    margin: 0 0 6px;
+    font-size: 19px;
+}
+
+.canva-skill-item p {
+    margin: 0;
+    color: #c8bdd4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* GALLERY */
+
+.canva-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+    margin-top: 45px;
+}
+
+.canva-project-card {
+    overflow: hidden;
+    border: 1px solid #6527a1;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        #14062b,
+        #21103b
+    );
+    transition: .35s ease;
+}
+
+.canva-project-card:hover {
+    transform: translateY(-10px);
+    border-color: #a84cff;
+    box-shadow: 0 20px 50px rgba(125,40,200,.25);
+}
+
+.canva-project-card.canva-wide {
+    grid-column: span 1;
+}
+
+.canva-image {
+    height: 400px;
+    padding: 15px;
+    background: #0b0318;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.canva-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform .4s ease;
+}
+
+.canva-project-card:hover .canva-image img {
+    transform: scale(1.03);
+}
+
+.canva-card-content {
+    padding: 22px;
+}
+
+.canva-card-content span {
+    color: #a965df;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.canva-card-content h3 {
+    margin: 8px 0;
+    font-size: 24px;
+}
+
+.canva-card-content p {
+    margin: 0;
+    color: #cfc4d9;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* FINAL */
+
+.canva-final {
+    text-align: center;
+    padding: 140px 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(112,39,178,.22),
+            transparent 55%
+        );
+}
+
+.canva-final > .container > span {
+    color: #a965df;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.canva-final h2 {
+    margin: 15px 0;
+    font-size: clamp(40px,6vw,76px);
+    line-height: 1.05;
+}
+
+.canva-final p {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    color: #d0c4db;
+    line-height: 1.7;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px) {
+
+    .canva-project-hero,
+    .canva-overview,
+    .canva-skill-section,
+    .canva-gallery-section,
+    .canva-final {
+        padding: 80px 0;
+    }
+
+    .canva-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .canva-hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .project-tags {
+        justify-content: center;
+    }
+
+    .canva-info-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .canva-skill-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .canva-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .canva-project-card.canva-wide {
+        grid-column: auto;
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .canva-project-hero,
+    .canva-overview,
+    .canva-skill-section,
+    .canva-gallery-section,
+    .canva-final {
+        padding: 70px 0;
+    }
+
+    .canva-hero-text h1 {
+        font-size: 48px;
+    }
+
+    .canva-hero-text p {
+        font-size: 15px;
+    }
+
+    .canva-hero-logo {
+        min-height: 250px;
+    }
+
+    .canva-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .canva-image {
+        height: 350px;
+    }
+
+    .canva-final h2 {
+        font-size: 42px;
+    }
+
+}
