@@ -66,3 +66,645 @@ radial-gradient(circle at 10% 80%,rgba(65,20,150,.18),transparent 30%),
  .card h2{font-size:22px}
  .card p,.work p,.ibis-card p{font-size:14px}
 }
+/* =========================================================
+   GODOT PROJECT CASE STUDY
+   ========================================================= */
+
+/* ---------- SCROLL REVEAL ---------- */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.3s;
+}
+
+
+/* ---------- GENERAL ---------- */
+
+.godot-project-hero,
+.project-info-section,
+.my-role-section,
+.godot-gallery,
+.godot-ui-section,
+.godot-level-section,
+.project-final {
+    position: relative;
+    padding: 110px 0;
+}
+
+
+/* ---------- HERO ---------- */
+
+.godot-project-hero {
+    min-height: 720px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.godot-project-hero::before {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    right: -180px;
+    top: 20px;
+    background: radial-gradient(
+        circle,
+        rgba(143, 48, 255, 0.28),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.godot-hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.godot-hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.project-label,
+.section-mini-title {
+    display: inline-block;
+    color: #b76cff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.godot-hero-text h1 {
+    margin: 18px 0;
+    font-size: clamp(55px, 7vw, 100px);
+    line-height: 0.95;
+    font-weight: 800;
+}
+
+.godot-hero-text h1 span {
+    color: #a84cff;
+    text-shadow: 0 0 30px rgba(168, 76, 255, 0.45);
+}
+
+.godot-hero-text p {
+    max-width: 650px;
+    color: #d7cde4;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.project-tags span {
+    padding: 9px 16px;
+    border: 1px solid #7130b8;
+    border-radius: 30px;
+    background: rgba(91, 31, 145, 0.18);
+    color: #e9dcf7;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.godot-hero-logo {
+    position: relative;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-logo-glow {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(151, 60, 255, 0.32),
+        transparent 68%
+    );
+    filter: blur(10px);
+}
+
+.godot-hero-logo > img:first-of-type {
+    position: relative;
+    z-index: 2;
+    width: min(440px, 90%);
+    max-height: 300px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5));
+}
+
+.godot-logo-project {
+    position: absolute;
+    z-index: 3;
+    right: 2%;
+    bottom: 15%;
+    width: 115px;
+    max-height: 115px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(151, 60, 255, 0.5));
+}
+
+
+/* ---------- HEADINGS ---------- */
+
+.project-info-section h2,
+.my-role-section h2,
+.godot-gallery h2,
+.godot-ui-section h2,
+.godot-level-section h2 {
+    margin: 10px 0 20px;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.05;
+}
+
+.overview-text,
+.section-description {
+    max-width: 850px;
+    color: #d5cade;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* ---------- INFO ---------- */
+
+.project-info-section {
+    background: rgba(19, 7, 42, 0.55);
+    border-top: 1px solid rgba(139, 53, 255, 0.2);
+    border-bottom: 1px solid rgba(139, 53, 255, 0.2);
+}
+
+.project-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-top: 45px;
+}
+
+.info-box {
+    padding: 25px;
+    border: 1px solid #55228a;
+    border-radius: 18px;
+    background: linear-gradient(
+        135deg,
+        rgba(27, 10, 54, 0.9),
+        rgba(40, 15, 72, 0.8)
+    );
+    transition: 0.3s ease;
+}
+
+.info-box:hover {
+    transform: translateY(-6px);
+    border-color: #a84cff;
+    box-shadow: 0 12px 35px rgba(111, 38, 180, 0.25);
+}
+
+.info-box span {
+    display: block;
+    margin-bottom: 10px;
+    color: #a965df;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.info-box strong {
+    font-size: 17px;
+}
+
+
+/* ---------- MY ROLE ---------- */
+
+.role-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.role-grid > div:first-child p {
+    max-width: 560px;
+    color: #d5cade;
+    line-height: 1.7;
+}
+
+.role-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.role-item {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 18px;
+    padding: 20px;
+    border-left: 2px solid #8d38d8;
+    background: linear-gradient(
+        90deg,
+        rgba(93, 31, 130, 0.2),
+        rgba(17, 5, 35, 0.3)
+    );
+    transition: 0.3s ease;
+}
+
+.role-item:hover {
+    transform: translateX(8px);
+    border-left-color: #bd6dff;
+    background: rgba(107, 36, 160, 0.25);
+}
+
+.role-item > span {
+    color: #9c4cff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.role-item h3 {
+    margin: 0 0 6px;
+    font-size: 19px;
+}
+
+.role-item p {
+    margin: 0;
+    color: #c8bdd4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ---------- CHARACTER GALLERY ---------- */
+
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 45px;
+}
+
+.godot-gallery-card {
+    overflow: hidden;
+    border: 1px solid #6527a1;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        #14062b,
+        #21103b
+    );
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.godot-gallery-card:hover {
+    transform: translateY(-10px);
+    border-color: #a84cff;
+    box-shadow: 0 20px 50px rgba(125, 40, 200, 0.25);
+}
+
+.gallery-image {
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(112, 39, 178, 0.18),
+            transparent 70%
+        ),
+        #0d0520;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.godot-gallery-card:hover .gallery-image img {
+    transform: scale(1.05);
+}
+
+.gallery-content {
+    padding: 22px;
+}
+
+.gallery-content span,
+.level-content span {
+    color: #a965df;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.gallery-content h3,
+.level-content h3 {
+    margin: 8px 0;
+    font-size: 25px;
+}
+
+.gallery-content p,
+.level-content p {
+    margin: 0;
+    color: #cfc4d9;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* ---------- UI SHOWCASE ---------- */
+
+.godot-ui-section {
+    background: rgba(20, 7, 43, 0.5);
+}
+
+.ui-showcase {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: 50px;
+    align-items: center;
+    margin-top: 45px;
+}
+
+.ui-image {
+    overflow: hidden;
+    border: 1px solid #6e2ab0;
+    border-radius: 22px;
+    padding: 18px;
+    background: #0c041b;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.ui-image img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+.ui-text h3 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+.ui-text p {
+    color: #d0c4db;
+    line-height: 1.7;
+}
+
+.ui-points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.ui-points span {
+    padding: 8px 13px;
+    border: 1px solid #7130b8;
+    border-radius: 8px;
+    color: #dcbaf4;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* ---------- LEVEL ---------- */
+
+.level-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.level-card {
+    overflow: hidden;
+    border: 1px solid #6728a5;
+    border-radius: 22px;
+    background: #100521;
+    transition: 0.35s ease;
+}
+
+.level-card:hover {
+    transform: translateY(-8px);
+    border-color: #a84cff;
+    box-shadow: 0 18px 45px rgba(125, 40, 200, 0.25);
+}
+
+.level-image {
+    height: 330px;
+    padding: 15px;
+    background: #0b0318;
+}
+
+.level-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.level-content {
+    padding: 25px;
+}
+
+
+/* ---------- FINAL ---------- */
+
+.project-final {
+    text-align: center;
+    padding: 140px 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(112, 39, 178, 0.22),
+            transparent 55%
+        );
+}
+
+.project-final > .container > span {
+    color: #a965df;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.project-final h2 {
+    margin: 15px 0;
+    font-size: clamp(40px, 6vw, 76px);
+    line-height: 1.05;
+}
+
+.project-final p {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    color: #d0c4db;
+    line-height: 1.7;
+}
+
+.final-button {
+    display: inline-block;
+    padding: 14px 25px;
+    border: 2px solid #8b35ff;
+    border-radius: 15px;
+    background: #17072f;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.final-button:hover {
+    transform: translateY(-4px);
+    background: #32115a;
+    box-shadow: 0 0 30px rgba(157, 64, 255, 0.45);
+}
+
+
+/* =========================================================
+   GODOT RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .godot-project-hero,
+    .project-info-section,
+    .my-role-section,
+    .godot-gallery,
+    .godot-ui-section,
+    .godot-level-section {
+        padding: 80px 0;
+    }
+
+    .godot-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .godot-hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .project-tags {
+        justify-content: center;
+    }
+
+    .godot-hero-logo {
+        min-height: 330px;
+    }
+
+    .project-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .role-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .character-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-image {
+        height: 420px;
+    }
+
+    .ui-showcase {
+        grid-template-columns: 1fr;
+    }
+
+    .level-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .godot-project-hero,
+    .project-info-section,
+    .my-role-section,
+    .godot-gallery,
+    .godot-ui-section,
+    .godot-level-section,
+    .project-final {
+        padding: 70px 0;
+    }
+
+    .godot-hero-text h1 {
+        font-size: 48px;
+    }
+
+    .godot-hero-text p {
+        font-size: 15px;
+    }
+
+    .godot-hero-logo {
+        min-height: 260px;
+    }
+
+    .godot-logo-project {
+        width: 80px;
+        bottom: 5%;
+    }
+
+    .project-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-box {
+        padding: 20px;
+    }
+
+    .role-item {
+        grid-template-columns: 42px 1fr;
+    }
+
+    .gallery-image {
+        height: 350px;
+    }
+
+    .level-image {
+        height: 230px;
+    }
+
+    .project-final h2 {
+        font-size: 42px;
+    }
+
+}
