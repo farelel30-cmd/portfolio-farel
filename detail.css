@@ -1058,3 +1058,477 @@ radial-gradient(circle at 10% 80%,rgba(65,20,150,.18),transparent 30%),
     }
 
 }
+/* =========================================================
+   BLENDER CASE STUDY
+   ========================================================= */
+
+.blender-project-hero,
+.blender-overview,
+.blender-process,
+.blender-main-project,
+.blender-gallery-section,
+.blender-final {
+    position: relative;
+    padding: 110px 0;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.blender-project-hero {
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+}
+
+.blender-hero-content {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.blender-hero-text h1 {
+    margin: 18px 0;
+    font-size: clamp(52px, 7vw, 92px);
+    line-height: .98;
+    font-weight: 800;
+}
+
+.blender-hero-text h1 span {
+    color: #a84cff;
+    text-shadow: 0 0 30px rgba(168,76,255,.45);
+}
+
+.blender-hero-text p {
+    max-width: 650px;
+    color: #d7cde4;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.blender-hero-logo {
+    position: relative;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blender-hero-logo .hero-logo-glow {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(151,60,255,.3),
+        transparent 68%
+    );
+    filter: blur(10px);
+}
+
+.blender-hero-logo img {
+    position: relative;
+    z-index: 2;
+    width: min(280px,80%);
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,.45));
+}
+
+
+/* =========================
+   OVERVIEW
+   ========================= */
+
+.blender-overview {
+    background: rgba(19,7,42,.55);
+    border-top: 1px solid rgba(139,53,255,.2);
+    border-bottom: 1px solid rgba(139,53,255,.2);
+}
+
+.blender-overview h2,
+.blender-process h2,
+.blender-main-project h2,
+.blender-gallery-section h2 {
+    margin: 10px 0 20px;
+    font-size: clamp(38px,5vw,62px);
+}
+
+.blender-info-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+    margin-top: 45px;
+}
+
+
+/* =========================
+   PROCESS
+   ========================= */
+
+.blender-process-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 80px;
+}
+
+.blender-process-grid > div:first-child p {
+    max-width: 560px;
+    color: #d5cade;
+    line-height: 1.7;
+}
+
+.blender-process-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.blender-process-item {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 18px;
+    padding: 20px;
+    border-left: 2px solid #8d38d8;
+    background: linear-gradient(
+        90deg,
+        rgba(93,31,130,.2),
+        rgba(17,5,35,.3)
+    );
+    transition: .3s ease;
+}
+
+.blender-process-item:hover {
+    transform: translateX(8px);
+    border-left-color: #bd6dff;
+}
+
+.blender-process-item > span {
+    color: #9c4cff;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.blender-process-item h3 {
+    margin: 0 0 6px;
+    font-size: 19px;
+}
+
+.blender-process-item p {
+    margin: 0;
+    color: #c8bdd4;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   MAIN ROOM
+   ========================= */
+
+.blender-main-project {
+    background: rgba(14,4,31,.45);
+}
+
+.section-description {
+    max-width: 760px;
+    color: #d0c5da;
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.blender-room-card {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 35px;
+    margin-top: 45px;
+    padding: 20px;
+    border: 1px solid #6928a3;
+    border-radius: 24px;
+    background: linear-gradient(
+        145deg,
+        #14062b,
+        #21103b
+    );
+    box-shadow: 0 20px 50px rgba(72,20,120,.15);
+}
+
+.blender-room-image {
+    min-height: 500px;
+    padding: 12px;
+    background: #0b0318;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blender-room-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.blender-room-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.blender-room-content > span,
+.blender-object-content > span {
+    color: #a965df;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.blender-room-content h3 {
+    margin: 10px 0;
+    font-size: 34px;
+}
+
+.blender-room-content > p {
+    color: #d0c4db;
+    line-height: 1.7;
+}
+
+.blender-room-points {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.blender-room-points div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    background: rgba(113,40,163,.12);
+}
+
+.blender-room-points strong {
+    color: #a95cff;
+}
+
+.blender-room-points span {
+    color: #d7cde1;
+    font-size: 14px;
+}
+
+
+/* =========================
+   OBJECT GALLERY
+   ========================= */
+
+.blender-gallery-section {
+    padding-bottom: 120px;
+}
+
+.blender-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+    margin-top: 45px;
+}
+
+.blender-object-card {
+    overflow: hidden;
+    border: 1px solid #6527a1;
+    border-radius: 22px;
+    background: linear-gradient(
+        145deg,
+        #14062b,
+        #21103b
+    );
+    transition: .35s ease;
+}
+
+.blender-object-card:hover {
+    transform: translateY(-10px);
+    border-color: #a84cff;
+    box-shadow: 0 20px 50px rgba(125,40,200,.25);
+}
+
+.blender-object-wide {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.blender-object-image {
+    height: 370px;
+    padding: 15px;
+    background: #0b0318;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blender-object-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform .4s ease;
+}
+
+.blender-object-card:hover .blender-object-image img {
+    transform: scale(1.03);
+}
+
+.blender-object-content {
+    padding: 25px;
+}
+
+.blender-object-content h3 {
+    margin: 8px 0;
+    font-size: 25px;
+}
+
+.blender-object-content p {
+    margin: 0;
+    color: #cfc4d9;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+
+/* =========================
+   FINAL
+   ========================= */
+
+.blender-final {
+    text-align: center;
+    padding: 140px 0;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(112,39,178,.22),
+            transparent 55%
+        );
+}
+
+.blender-final > .container > span {
+    color: #a965df;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.blender-final h2 {
+    margin: 15px 0;
+    font-size: clamp(40px,6vw,76px);
+    line-height: 1.05;
+}
+
+.blender-final p {
+    max-width: 700px;
+    margin: 0 auto 35px;
+    color: #d0c4db;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media(max-width:900px) {
+
+    .blender-project-hero,
+    .blender-overview,
+    .blender-process,
+    .blender-main-project,
+    .blender-gallery-section,
+    .blender-final {
+        padding: 80px 0;
+    }
+
+    .blender-hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .blender-hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .project-tags {
+        justify-content: center;
+    }
+
+    .blender-info-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .blender-process-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .blender-room-card {
+        grid-template-columns: 1fr;
+    }
+
+    .blender-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blender-object-wide {
+        grid-column: auto;
+        display: block;
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .blender-project-hero,
+    .blender-overview,
+    .blender-process,
+    .blender-main-project,
+    .blender-gallery-section,
+    .blender-final {
+        padding: 70px 0;
+    }
+
+    .blender-hero-text h1 {
+        font-size: 48px;
+    }
+
+    .blender-hero-text p {
+        font-size: 15px;
+    }
+
+    .blender-hero-logo {
+        min-height: 250px;
+    }
+
+    .blender-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blender-room-image {
+        min-height: 300px;
+    }
+
+    .blender-object-image {
+        height: 320px;
+    }
+
+    .blender-final h2 {
+        font-size: 42px;
+    }
+
+}
