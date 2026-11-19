@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Visual Arts & Fotografi | Farel El Jalaluddin Rumi</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/svg+xml" href="assets/images/mascot.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/photography.css">
+</head>
+<body class="gallery-page">
+
+  <!-- Ambient Cosmic Starfield -->
+  <canvas id="starfield-canvas"></canvas>
+  <div class="cosmic-nebula nebula-1"></div>
+  <div class="cosmic-nebula nebula-2"></div>
+
+  <!-- Top Sticky Navigation Bar -->
+  <header style="padding: 16px 20px 0 20px;">
+    <div class="gallery-nav-bar">
+      <div class="gallery-nav-left">
+        <a href="index.html#portfolio" class="btn-back-portfolio">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Portofolio Utama</span>
+        </a>
+        <span class="gallery-brand-title">Visual Arts Gallery</span>
+      </div>
+
+      <div class="gallery-badge-count">
+        <span class="dot"></span>
+        <span id="photo-total-badge">27 Foto</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Gallery Hero -->
+  <section class="gallery-hero">
+    <span class="gallery-pill-tag">SHOT ON IPHONE &amp; VISUAL EXPLORATION</span>
+    <h1 class="gallery-main-title">
+      Visual Arts &amp; <span>Fotografi</span>
+    </h1>
+    <p class="gallery-main-desc">
+      Koleksi karya fotografi oleh <strong>Farel El Jalaluddin Rumi</strong>. Mengabadikan keindahan alam, panorama perbukitan, pencahayaan alami fajar (golden hour), komposisi rule of thirds, serta sudut pandang humanis. Klik pada foto untuk melihat ukuran penuh.
+    </p>
+
+    <div class="gallery-meta-tags">
+      <span class="gallery-meta-badge">🌄 Mountain Ridge</span>
+      <span class="gallery-meta-badge">☀️ Natural Lighting</span>
+      <span class="gallery-meta-badge">📷 iPhone Camera</span>
+      <span class="gallery-meta-badge">🎨 Color Harmony</span>
+      <span class="gallery-meta-badge">📐 Rule of Thirds</span>
+    </div>
+  </section>
+
+  <!-- Photo Grid Container -->
+  <main class="gallery-container">
+    <div class="gallery-grid" id="gallery-grid">
+      <!-- Photos will be dynamically injected from js/gallery_data.js -->
+    </div>
+  </main>
+
+  <!-- Fullscreen Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Lihat Foto Ukuran Penuh">
+    <button class="lightbox-close-btn" id="lightbox-close" title="Tutup (Esc)">✕</button>
+    
+    <button class="lightbox-nav-btn lightbox-prev" id="lightbox-prev" title="Foto Sebelumnya (Panah Kiri)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    
+    <button class="lightbox-nav-btn lightbox-next" id="lightbox-next" title="Foto Selanjutnya (Panah Kanan)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="lightbox-content-box" id="lightbox-box">
+      <div class="lightbox-image-wrap">
+        <img src="" alt="" id="lightbox-img" class="lightbox-img">
+      </div>
+      
+      <div class="lightbox-caption-bar">
+        <span class="lightbox-counter" id="lightbox-counter">1 / 27</span>
+        <span class="lightbox-title" id="lightbox-title">Golden Hour Mountain Ridge</span>
+        <a href="" target="_blank" download id="lightbox-raw-link" class="lightbox-open-raw" title="Buka file asli">
+          <span>Buka Resolusi Penuh ↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 40px 20px; border-top: 1px solid rgba(255,255,255,0.08); color: #64748b; font-size: 0.9rem;">
+    <p>© 2026 <strong>Farel El Jalaluddin Rumi</strong> • Siswa PPLG SMKN 11 Semarang</p>
+    <p style="margin-top: 8px;">
+      <a href="https://instagram.com/fareljrr_" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 10px;">Instagram: @fareljrr_</a> | 
+      <a href="https://wa.me/6285113937232" target="_blank" style="color: #38bdf8; text-decoration: none; margin: 0 10px;">WhatsApp: 0851-1393-7232</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/gallery_data.js"></script>
+  <script>
+    // 1. Starfield background
+    (function initStarfield() {
+      const canvas = document.getElementById('starfield-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width, height, stars = [];
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      for (let i = 0; i < 90; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.3,
+          speed: Math.random() * 0.2 + 0.05,
+          alpha: Math.random() * 0.7 + 0.3
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        stars.forEach(s => {
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${s.alpha})`;
+          ctx.fill();
+          s.y += s.speed;
+          if (s.y > height) {
+            s.y = 0;
+            s.x = Math.random() * width;
+          }
+        });
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    // 2. Render Gallery Grid
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('gallery-grid');
+      const badge = document.getElementById('photo-total-badge');
+      if (!grid || typeof galleryPhotos === 'undefined') return;
+
+      if (badge) badge.textContent = `${galleryPhotos.length} Foto`;
+
+      grid.innerHTML = galleryPhotos.map((photo, idx) => `
+        <div class="photo-card" data-index="${idx}">
+          <div class="photo-img-wrap ${idx === 0 ? 'featured' : ''}">
+            <img src="${photo.src}" alt="${photo.title}" class="photo-img" loading="lazy">
+            <div class="photo-overlay">
+              <span class="photo-title-pill">${photo.title}</span>
+              <div class="photo-sub-text">
+                <span>${photo.category}</span>
+                <span class="photo-expand-hint">Lihat Foto ↗</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      // 3. Lightbox Functionality
+      const modal = document.getElementById('lightbox-modal');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxTitle = document.getElementById('lightbox-title');
+      const lightboxCounter = document.getElementById('lightbox-counter');
+      const lightboxRawLink = document.getElementById('lightbox-raw-link');
+      const closeBtn = document.getElementById('lightbox-close');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        const photo = galleryPhotos[currentIndex];
+        if (!photo) return;
+
+        lightboxImg.src = photo.src;
+        lightboxImg.alt = photo.title;
+        lightboxTitle.textContent = photo.title;
+        lightboxCounter.textContent = `${currentIndex + 1} / ${galleryPhotos.length}`;
+        lightboxRawLink.href = photo.src;
+
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % galleryPhotos.length;
+        openLightbox(currentIndex);
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryPhotos.length) % galleryPhotos.length;
+        openLightbox(currentIndex);
+      }
+
+      // Card Click
+      grid.addEventListener('click', (e) => {
+        const card = e.target.closest('.photo-card');
+        if (card) {
+          const idx = parseInt(card.getAttribute('data-index'), 10);
+          openLightbox(idx);
+        }
+      });
+
+      // Controls
+      closeBtn.addEventListener('click', closeLightbox);
+      nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+      prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+
+      // Click outside image to close
+      modal.addEventListener('click', (e) => {
+        if (!e.target.closest('.lightbox-content-box') && !e.target.closest('.lightbox-nav-btn')) {
+          closeLightbox();
+        }
+      });
+
+      // Keyboard navigation
+      window.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+
+      // Touch swipe support for mobile
+      let touchStartX = 0;
+      let touchEndX = 0;
+      modal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      }, { passive: true });
+      modal.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) showNext();
+        if (touchEndX - touchStartX > 50) showPrev();
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>

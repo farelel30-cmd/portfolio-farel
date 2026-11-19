@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240">
+  <defs>
+    <radialGradient id="blenderGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#090d16"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="240" fill="#090d16"/>
+  <rect x="25" y="20" width="350" height="200" rx="14" fill="#0f172a" stroke="#f97316" stroke-width="2"/>
+  
+  <!-- Blender 3D Wireframe Cube & Studio Mesh -->
+  <g transform="translate(200, 105)">
+    <!-- Isometric 3D Box -->
+    <polygon points="0,-45 52,-15 0,15 -52,-15" fill="#f97316" opacity="0.85"/>
+    <polygon points="-52,-15 0,15 0,70 -52,40" fill="#c2410c"/>
+    <polygon points="0,15 52,-15 52,40 0,70" fill="#ea580c"/>
+    <!-- Wireframe Lines -->
+    <line x1="0" y1="-45" x2="0" y2="15" stroke="#fed7aa" stroke-width="1.5"/>
+    <line x1="52" y1="-15" x2="0" y2="15" stroke="#fed7aa" stroke-width="1.5"/>
+    <line x1="-52" y1="-15" x2="0" y2="15" stroke="#fed7aa" stroke-width="1.5"/>
+  </g>
+
+  <!-- Title & Blender tag -->
+  <rect x="45" y="175" width="310" height="32" rx="8" fill="#1e293b"/>
+  <text x="60" y="195" fill="#ffffff" font-family="sans-serif" font-weight="bold" font-size="12">Blender 3D Assets &amp; Low-Poly Modeling</text>
+  <text x="295" y="195" fill="#f97316" font-family="sans-serif" font-weight="bold" font-size="11">Cycles/EEVEE</text>
+</svg>

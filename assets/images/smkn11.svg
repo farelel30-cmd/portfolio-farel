@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- SMKN 11 Semarang Emblem -->
+  <polygon points="50,6 92,26 92,74 50,94 8,74 8,26" fill="#1e3a8a" stroke="#fbbf24" stroke-width="4"/>
+  <circle cx="50" cy="50" r="28" fill="#ffffff"/>
+  <path d="M40 35 L60 35 L50 48 Z" fill="#dc2626"/>
+  <text x="32" y="68" fill="#1e3a8a" font-family="sans-serif" font-weight="bold" font-size="12">11</text>
+  <path d="M30 75 Q 50 82 70 75" stroke="#fbbf24" stroke-width="3" fill="none"/>
+</svg>

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Farel El Jalaluddin Rumi | Portofolio</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/mascot.svg">
+  
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       INTRO / LOADING SCREEN
+       ========================================================================== -->
+  <div id="intro-loader">
+    <div class="intro-content">
+      <div class="intro-title-wrap">
+        <h2 class="intro-sub">Welcome To My</h2>
+        <h1 class="intro-main">Portofolio Website</h1>
+      </div>
+      <div class="progress-container">
+        <div class="progress-meta">
+          <span>Loading</span>
+          <span id="load-percent">0%</span>
+        </div>
+        <div class="progress-bar-outer">
+          <div class="progress-bar-inner" id="load-progress"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Space Background Starfield & Lightning Canvases -->
+  <canvas id="starfield-canvas"></canvas>
+  <canvas id="lightning-canvas"></canvas>
+
+  <!-- Ambient Nebula Glows -->
+  <div class="cosmic-nebula nebula-1"></div>
+  <div class="cosmic-nebula nebula-2"></div>
+  <div class="cosmic-nebula nebula-3"></div>
+
+  <!-- ==========================================================================
+       FLOATING NAVBAR WITH ANIMATED PEEKING MASCOT
+       ========================================================================== -->
+  <header class="header-nav">
+    <div class="nav-wrapper">
+      <!-- Mascot hopping indicator -->
+      <div class="mascot-container">
+        <img src="assets/images/mascot.svg" alt="Mascot" class="mascot-svg">
+      </div>
+
+      <!-- Glass Pill Navigation -->
+      <nav class="navbar-pill">
+        <a href="#home" class="nav-item active">Home</a>
+        <a href="#about" class="nav-item">About</a>
+        <a href="#portfolio" class="nav-item">Portfolio</a>
+        <a href="#contact" class="nav-item">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT CONTAINER
+       ========================================================================== -->
+  <main class="main-container">
+
+    <!-- ========================================================================
+         SECTION 1: HOME (HERO + SPOTLIGHT CARD)
+         ======================================================================== -->
+    <section id="home">
+      <div class="hero-grid">
+        <!-- Hero Left Column -->
+        <div class="hero-content">
+          <h1 class="hero-headline">
+            <span class="text-blue">Turning Ideas</span>
+            <span class="text-white">Into Reality</span>
+          </h1>
+
+          <!-- Typewriter Subheading -->
+          <div class="typewriter-wrap">
+            <span class="typewriter-text" id="typewriter"></span>
+            <span class="typewriter-cursor"></span>
+          </div>
+
+          <p class="hero-bio">
+            Saya adalah siswa <strong>SMK Negeri 11 Semarang</strong> jurusan <strong>Pengembangan Perangkat Lunak dan Gim (PPLG)</strong>. Berpengalaman membangun website modern, merancang antarmuka UI/UX yang intuitif, membuat gim simulasi 2D interaktif dengan Godot Engine, serta memodelkan aset 3D di Blender.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#portfolio" class="btn-primary">
+              <span>Lihat Project</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+              </svg>
+            </a>
+            <a href="#contact" class="btn-ghost">
+              <span>Hubungi Saya</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social Links -->
+          <div class="hero-socials">
+            <span class="social-label">FIND ME</span>
+            <div class="social-links">
+              <!-- WhatsApp -->
+              <a href="https://wa.me/6285113937232" target="_blank" rel="noopener" class="social-icon-btn" title="WhatsApp: 085113937232">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                </svg>
+              </a>
+              <!-- Instagram -->
+              <a href="https://instagram.com/fareljrr_" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram: @fareljrr_">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+              <!-- Email -->
+              <a href="mailto:fareleljr@gmail.com" class="social-icon-btn" title="Email: fareleljr@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l9.518 7.714 9.518-7.714v11.817h-19.036z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Right Column: Developer & Creative Spotlight Card -->
+        <div class="spotlight-card glass-panel">
+          <div class="spotlight-top-header">
+            <div>
+              <h2 class="spotlight-title">Creative &amp; Tech Focus</h2>
+              <p class="spotlight-desc">Siswa PPLG SMKN 11 Semarang • Fullstack, Game &amp; 3D Creator</p>
+            </div>
+            <div class="spotlight-badge-live">
+              <span class="live-pulse-dot"></span>
+              <span>Available for Collab</span>
+            </div>
+          </div>
+
+          <!-- Feature items list -->
+          <div class="spotlight-features-box">
+            <!-- Row 1: Game Dev -->
+            <div class="spotlight-item-row">
+              <div class="spotlight-icon-box" style="background: rgba(71, 140, 191, 0.2); color: #478cbf;">🎮</div>
+              <div class="spotlight-item-text">
+                <div class="spotlight-item-name">Gim Simulasi Edukasi UKS 2D</div>
+                <div class="spotlight-item-sub">Godot 4 • GDScript • Drag &amp; Drop System</div>
+              </div>
+              <span class="spotlight-tag">Game Dev</span>
+            </div>
+
+            <!-- Row 2: Savings Journal -->
+            <div class="spotlight-item-row">
+              <div class="spotlight-icon-box" style="background: rgba(16, 185, 129, 0.2); color: #34d399;">💰</div>
+              <div class="spotlight-item-text">
+                <div class="spotlight-item-name">Savings Journal</div>
+                <div class="spotlight-item-sub">Supabase Realtime • PostgreSQL • RLS</div>
+              </div>
+              <span class="spotlight-tag">Fullstack</span>
+            </div>
+
+            <!-- Row 3: Realtime Chat -->
+            <div class="spotlight-item-row">
+              <div class="spotlight-icon-box" style="background: rgba(99, 102, 241, 0.2); color: #818cf8;">💬</div>
+              <div class="spotlight-item-text">
+                <div class="spotlight-item-name">UsTwo Real-time Chat App</div>
+                <div class="spotlight-item-sub">Firebase Auth • Firestore • Read Receipts</div>
+              </div>
+              <span class="spotlight-tag">Web Realtime</span>
+            </div>
+
+            <!-- Row 4: 3D Blender & UI/UX -->
+            <div class="spotlight-item-row">
+              <div class="spotlight-icon-box" style="background: rgba(249, 115, 22, 0.2); color: #fb923c;">🎨</div>
+              <div class="spotlight-item-text">
+                <div class="spotlight-item-name">3D Modeling &amp; Petualangan Nusantara UI</div>
+                <div class="spotlight-item-sub">Blender 3D • Figma • Canva</div>
+              </div>
+              <span class="spotlight-tag">3D &amp; Design</span>
+            </div>
+          </div>
+
+          <!-- Mini Terminal Code Preview -->
+          <div class="mini-terminal">
+            <div class="terminal-bar">
+              <span class="t-dot t-red"></span>
+              <span class="t-dot t-yellow"></span>
+              <span class="t-dot t-green"></span>
+            </div>
+            <div class="terminal-line"><span class="terminal-keyword">const</span> developer = {</div>
+            <div class="terminal-line" style="padding-left: 14px;">name: <span class="terminal-str">'Farel El Jalaluddin Rumi'</span>,</div>
+            <div class="terminal-line" style="padding-left: 14px;">school: <span class="terminal-str">'SMKN 11 Semarang (PPLG)'</span>,</div>
+            <div class="terminal-line" style="padding-left: 14px;">status: <span class="terminal-fn">'Ready to Build Awesome Things 🚀'</span></div>
+            <div class="terminal-line">};</div>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="spotlight-actions">
+            <a href="https://wa.me/6285113937232" target="_blank" rel="noopener" class="btn-wa-direct">
+              <span>Chat WhatsApp</span>
+              <span>💬</span>
+            </a>
+            <a href="mailto:fareleljr@gmail.com" class="btn-email-direct">
+              <span>Kirim Email</span>
+              <span>✉️</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 2: ABOUT ME
+         ======================================================================== -->
+    <section id="about">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+      </div>
+
+      <!-- About Top Hero Grid (Greeting, Interactive Avatar, Bio) -->
+      <div class="about-hero-grid">
+        <!-- Left Column: Hi, I'm ... -->
+        <div class="about-intro-left">
+          <h2 class="about-greeting">
+            <span class="text-blue">Hi, I'm</span><br>
+            <span>Farel El Jalaluddin<br>Rumi</span>
+          </h2>
+          <div>
+            <button class="btn-primary" id="btn-view-resume">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>View Resume</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Center Column: Holographic Interactive Avatar -->
+        <div class="avatar-center-wrap">
+          <div class="avatar-frame" id="avatar-frame" title="Klik foto untuk beralih mode!">
+            <img src="assets/images/farel_normal.jpg" alt="Farel El Jalaluddin Rumi" class="avatar-img avatar-normal">
+            <img src="assets/images/farel_cyber.jpg" alt="Cyber Mode Farel" class="avatar-img avatar-spider">
+            <div class="avatar-scanline"></div>
+          </div>
+          <div class="avatar-mode-badge" id="avatar-mode-badge">
+            <span>🎓 PPLG Student Mode</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Description & View Projects Button -->
+        <div class="about-desc-right">
+          <p>
+            Saya adalah siswa <strong>SMK Negeri 11 Semarang</strong> jurusan Pengembangan Perangkat Lunak dan Gim (PPLG). Memiliki kemampuan dalam membuat website sederhana maupun kompleks, merancang antarmuka (UI/UX), membuat aset 2D (Canva &amp; Figma), serta memodelkan aset 3D menggunakan Blender.
+          </p>
+          <div>
+            <a href="#portfolio" class="btn-ghost">
+              <span>&lt;&gt; View Projects</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education & Expertise Journey Grid -->
+      <div class="journey-grid">
+        <!-- Education Column -->
+        <div class="journey-col">
+          <h3 class="journey-col-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            <span>Education</span>
+          </h3>
+          <div class="journey-list">
+            <!-- SMKN 11 Semarang -->
+            <div class="journey-item glass-panel">
+              <div class="journey-logo">
+                <img src="assets/images/logo_smkn11.png" alt="SMKN 11 Semarang Logo">
+              </div>
+              <div class="journey-info">
+                <h4 class="journey-heading">SMK Negeri 11 Semarang</h4>
+                <p class="journey-role">Pengembangan Perangkat Lunak dan Gim (PPLG)</p>
+                <span class="journey-year">Active Student</span>
+              </div>
+            </div>
+
+            <!-- SMPN 21 Semarang -->
+            <div class="journey-item glass-panel">
+              <div class="journey-logo">
+                <img src="assets/images/logo_smpn21.jpg" alt="SMPN 21 Semarang Logo">
+              </div>
+              <div class="journey-info">
+                <h4 class="journey-heading">SMP Negeri 21 Semarang</h4>
+                <p class="journey-role">Sekolah Menengah Pertama</p>
+                <span class="journey-year">Alumni</span>
+              </div>
+            </div>
+
+            <!-- SDIT Assalamah Ungaran -->
+            <div class="journey-item glass-panel">
+              <div class="journey-logo">
+                <img src="assets/images/logo_sdit.jpg" alt="SDIT Assalamah Ungaran Logo">
+              </div>
+              <div class="journey-info">
+                <h4 class="journey-heading">SDIT Assalamah Ungaran</h4>
+                <p class="journey-role">Sekolah Dasar Islam Terpadu</p>
+                <span class="journey-year">Alumni</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expertise & Passion Column -->
+        <div class="journey-col">
+          <h3 class="journey-col-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+            <span>Core Expertise</span>
+          </h3>
+          <div class="journey-list">
+            <!-- Game Dev -->
+            <div class="journey-item glass-panel">
+              <div class="journey-logo">
+                <img src="assets/images/logo_godot.png" alt="Godot Engine">
+              </div>
+              <div class="journey-info">
+                <h4 class="journey-heading">Game Development (Godot 4)</h4>
+                <p class="journey-role">GDScript • 2D Mechanics • Interactive Control UI</p>
+                <span class="journey-year">Core Passion</span>
+              </div>
+            </div>
+
+            <!-- Web & Realtime -->
+            <div class="journey-item glass-panel">
+              <div class="journey-logo">
+                <svg viewBox="0 0 109 113" width="28" height="28">
+                  <path d="M63.7076 110.284C60.8481 113.885 55.0502 111.912 54.9913 107.314L54.4781 67.3592H9.24647C3.18434 67.3592 -0.62772 61.3486 1.83857 55.8078L44.8872 2.6517C47.7467 -0.949377 53.5446 1.02347 53.6035 5.62174L53.6496 45.5768H99.3489C105.411 45.5768 109.223 51.5874 106.757 57.1282L63.7076 110.284Z" fill="#3ECF8E"/>
+                </svg>
+              </div>
+              <div class="journey-info">
+                <h4 class="journey-heading">Fullstack &amp; Real-time Apps</h4>
+                <p class="journey-role">Supabase • Firebase • PostgreSQL • Auth &amp; RLS</p>
+                <span class="journey-year">Production Stack</span>
+              </div>
+            </div>
+
+            <!-- 3D & Digital Art -->
+            <div class="journey-item glass-panel">
+              <div class="journey-logo">
+                <img src="assets/images/logo_blender.png" alt="Blender 3D">
+              </div>
+              <div class="journey-info">
+                <h4 class="journey-heading">3D Modeling &amp; Digital Art</h4>
+                <p class="journey-role">Blender 3D • Figma • Canva</p>
+                <span class="journey-year">Creative Division</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metric Counter Cards -->
+      <div class="metrics-row">
+        <!-- Projects Metric -->
+        <div class="metric-card glass-panel">
+          <div class="metric-left">
+            <div class="metric-icon-title">
+              <span>&lt;/&gt;</span>
+              <span>PROJECTS</span>
+            </div>
+            <p class="metric-desc">Web apps &amp; games crafted ↗</p>
+          </div>
+          <div class="metric-number" data-count="6">0</div>
+        </div>
+
+        <!-- Skills / Tech Metric -->
+        <div class="metric-card glass-panel">
+          <div class="metric-left">
+            <div class="metric-icon-title">
+              <span>🛠️</span>
+              <span>SKILLS &amp; TOOLS</span>
+            </div>
+            <p class="metric-desc">Frameworks &amp; creative software ↗</p>
+          </div>
+          <div class="metric-number" data-count="15">0</div>
+        </div>
+
+        <!-- Focus Metric -->
+        <div class="metric-card glass-panel">
+          <div class="metric-left">
+            <div class="metric-icon-title">
+              <span>🎓</span>
+              <span>SMKN 11 SMG</span>
+            </div>
+            <p class="metric-desc">Jurusan PPLG Indonesia ↗</p>
+          </div>
+          <div class="metric-number" data-count="100" style="font-size: 2.2rem;">PPLG</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 3: PORTFOLIO
+         ======================================================================== -->
+    <section id="portfolio">
+      <div class="section-header">
+        <h2 class="section-title">Portofolio</h2>
+        <p class="section-subtitle">Kumpulan karya website realtime, gim simulasi edukasi, aset 3D, dan desain antarmuka.</p>
+      </div>
+
+      <!-- Portfolio Sub-Tabs Navigation -->
+      <div class="portfolio-tabs-nav">
+        <button class="port-sub-tab active" data-target="tab-projects">
+          <span>&lt;/&gt;</span>
+          <span>Semua Project</span>
+        </button>
+        <button class="port-sub-tab" data-target="tab-games-3d">
+          <span>🕹️</span>
+          <span>Game Dev &amp; 3D</span>
+        </button>
+        <button class="port-sub-tab" data-target="tab-tech">
+          <span>⚛️</span>
+          <span>Tech Stack</span>
+        </button>
+      </div>
+
+      <!-- Tab 1: All Projects Grid -->
+      <div class="port-panel active" id="tab-projects">
+        <div class="projects-grid">
+          <!-- Project 1: Savings Journal -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_savings.jpg" alt="Savings Journal" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Supabase Realtime</span>
+                <span class="tag-badge">PostgreSQL</span>
+                <span class="tag-badge">RLS Auth</span>
+              </div>
+              <h3 class="project-title">Savings Journal</h3>
+              <p class="project-desc">Website pencatatan tabungan bersama untuk 2 pengguna mengelola setoran mingguan, target keuangan, dan riwayat transaksi secara realtime.</p>
+              <button class="btn-project-details" data-project="savings">
+                <span>Details</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 2: Real-time Chat App -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_chat.jpg" alt="UsTwo Real-time Chat App" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Firebase</span>
+                <span class="tag-badge">Cloud Firestore</span>
+                <span class="tag-badge">Read Receipts</span>
+              </div>
+              <h3 class="project-title">Real-time Chat Application</h3>
+              <p class="project-desc">Aplikasi chat pribadi berbasis web dengan pesan instan realtime, tanda centang status pesan telah dibaca, serta sistem autentikasi pengguna.</p>
+              <button class="btn-project-details" data-project="chat">
+                <span>Details</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 3: UKS Simulation Game -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_uks_game.jpg" alt="Gim Simulasi UKS Godot" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Godot Engine 4</span>
+                <span class="tag-badge">GDScript</span>
+                <span class="tag-badge">2D Simulation</span>
+              </div>
+              <h3 class="project-title">Gim Simulasi Petugas UKS 2D</h3>
+              <p class="project-desc">Gim simulasi edukatif interaktif penanganan kasus kesehatan remaja sekolah dengan mekanisme drag-and-drop peralatan medis dan achievement badges.</p>
+              <button class="btn-project-details" data-project="uks_game">
+                <span>Details</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 4: Blender 3D Assets -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_blender_3d.jpg" alt="Blender 3D Living Room" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Blender 3D</span>
+                <span class="tag-badge">Cycles / EEVEE</span>
+                <span class="tag-badge">PBR Lighting</span>
+              </div>
+              <h3 class="project-title">3D Asset Modeling &amp; Scene</h3>
+              <p class="project-desc">Eksplorasi pemodelan interior ruang tamu modern, furnitur sofa, penataan pencahayaan sinematik studio, serta material PBR fotorealistik.</p>
+              <button class="btn-project-details" data-project="blender_3d">
+                <span>Details</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 5: UI/UX Figma & Canva -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_uiux_figma.jpg" alt="Petualangan Nusantara Game UI" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Figma</span>
+                <span class="tag-badge">Canva</span>
+                <span class="tag-badge">Game UI Screen</span>
+              </div>
+              <h3 class="project-title">UI/UX - Petualangan Nusantara</h3>
+              <p class="project-desc">Perancangan antarmuka visual bertema Petualangan Nusantara dengan altar candi batu, tombol navigasi alamiah, dan perpaduan warna tropis memukau.</p>
+              <button class="btn-project-details" data-project="uiux_figma">
+                <span>Details</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Project 6: Fotografi & Visual Storytelling -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_photography.jpg" alt="Visual Arts &amp; Fotografi" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Fotografi</span>
+                <span class="tag-badge">Shot on iPhone</span>
+                <span class="tag-badge">Landscape</span>
+              </div>
+              <h3 class="project-title">Visual Arts &amp; Fotografi</h3>
+              <p class="project-desc">Eksplorasi estetika visual dan fotografi menangkap momen, panorama perbukitan golden hour, komposisi pencahayaan natural, dan cerita di balik lensa kamera iPhone.</p>
+              <a href="photography.html" target="_blank" class="btn-project-details" data-project="photography" style="text-decoration: none;">
+                <span>Lihat Galeri (27 Foto) 📸</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Game Dev & 3D Focus -->
+      <div class="port-panel" id="tab-games-3d">
+        <div class="projects-grid">
+          <!-- Godot UKS Game Highlight -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_uks_game.jpg" alt="Gim UKS 2D Godot" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Godot Engine 4</span>
+                <span class="tag-badge">GDScript</span>
+                <span class="tag-badge">Interactive Medical Sim</span>
+              </div>
+              <h3 class="project-title">Gim Simulasi Petugas UKS 2D</h3>
+              <p class="project-desc">Menangani keluhan kesehatan siswa sekolah menggunakan mekanisme drag-and-drop alat medis, minigame patroli lingkungan, dan lencana edukasi kesehatan remaja.</p>
+              <button class="btn-project-details" data-project="uks_game">
+                <span>Details Proyek</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Blender 3D Highlight -->
+          <div class="project-card glass-panel">
+            <div class="project-img-wrap">
+              <img src="assets/images/proj_blender_3d.jpg" alt="Blender 3D Living Room" class="project-img">
+            </div>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="tag-badge">Blender 3D</span>
+                <span class="tag-badge">Cycles Render</span>
+                <span class="tag-badge">Interior Modeling</span>
+              </div>
+              <h3 class="project-title">3D Asset Modeling &amp; Scene</h3>
+              <p class="project-desc">Pemodelan interior ruang tamu modern, furnitur sofa, penataan pencahayaan sinematik studio, serta material PBR fotorealistik.</p>
+              <button class="btn-project-details" data-project="blender_3d">
+                <span>Details Proyek</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Tech Stack Grid -->
+      <div class="port-panel" id="tab-tech">
+        <div class="tech-grid">
+          <!-- Godot Engine -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon">
+              <img src="assets/images/logo_godot.png" alt="Godot Engine">
+            </div>
+            <span class="tech-name">Godot Engine</span>
+            <span class="tech-cat">Game Engine</span>
+          </div>
+
+          <!-- GDScript -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon" style="font-weight: 800; font-size: 1.4rem; color: #478cbf;">
+              GD
+            </div>
+            <span class="tech-name">GDScript</span>
+            <span class="tech-cat">Game Logic</span>
+          </div>
+
+          <!-- Blender -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon">
+              <img src="assets/images/logo_blender.png" alt="Blender 3D">
+            </div>
+            <span class="tech-name">Blender 3D</span>
+            <span class="tech-cat">3D Modeling</span>
+          </div>
+
+          <!-- Supabase -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon">
+              <svg viewBox="0 0 109 113" width="36" height="36">
+                <path d="M63.7076 110.284C60.8481 113.885 55.0502 111.912 54.9913 107.314L54.4781 67.3592H9.24647C3.18434 67.3592 -0.62772 61.3486 1.83857 55.8078L44.8872 2.6517C47.7467 -0.949377 53.5446 1.02347 53.6035 5.62174L53.6496 45.5768H99.3489C105.411 45.5768 109.223 51.5874 106.757 57.1282L63.7076 110.284Z" fill="#3ECF8E"/>
+              </svg>
+            </div>
+            <span class="tech-name">Supabase</span>
+            <span class="tech-cat">Realtime DB</span>
+          </div>
+
+          <!-- Firebase -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon">
+              <img src="assets/images/icon_firebase.svg" alt="Firebase">
+            </div>
+            <span class="tech-name">Firebase</span>
+            <span class="tech-cat">Cloud Database</span>
+          </div>
+
+          <!-- JavaScript -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon" style="background: #f7df1e; border-radius: 6px; padding: 4px; color: #000; font-weight: 800; font-size: 1.1rem;">
+              JS
+            </div>
+            <span class="tech-name">JavaScript</span>
+            <span class="tech-cat">Language</span>
+          </div>
+
+          <!-- HTML5 -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon" style="color: #e34f26; font-size: 1.4rem; font-weight: 800;">
+              &lt;/&gt;
+            </div>
+            <span class="tech-name">HTML5</span>
+            <span class="tech-cat">Structure</span>
+          </div>
+
+          <!-- CSS3 & Responsive -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon" style="color: #264de4; font-size: 1.4rem; font-weight: 800;">
+              #CSS
+            </div>
+            <span class="tech-name">CSS3</span>
+            <span class="tech-cat">Responsive UI</span>
+          </div>
+
+          <!-- PostgreSQL -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon" style="color: #336791; font-weight: 800; font-size: 1.1rem;">
+              SQL
+            </div>
+            <span class="tech-name">PostgreSQL</span>
+            <span class="tech-cat">Database</span>
+          </div>
+
+          <!-- Figma -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon">
+              <svg viewBox="0 0 38 57" width="36" height="36">
+                <path d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z" fill="#1abcfe"/>
+                <path d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0z" fill="#0acf83"/>
+                <path d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19z" fill="#ff7262"/>
+                <path d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z" fill="#f24e1e"/>
+                <path d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z" fill="#a259ff"/>
+              </svg>
+            </div>
+            <span class="tech-name">Figma</span>
+            <span class="tech-cat">UI/UX Design</span>
+          </div>
+
+          <!-- Canva -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon" style="color: #00c4cc; font-weight: 800; font-size: 1.2rem;">
+              Canva
+            </div>
+            <span class="tech-name">Canva</span>
+            <span class="tech-cat">2D Digital Art</span>
+          </div>
+
+          <!-- Fotografi -->
+          <div class="tech-card glass-panel">
+            <div class="tech-icon" style="color: #38bdf8; font-size: 1.4rem;">
+              📸
+            </div>
+            <span class="tech-name">Fotografi</span>
+            <span class="tech-cat">Visual Arts</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         SECTION 4: CONTACT & GUESTBOOK (HUBUNGI SAYA)
+         ======================================================================== -->
+    <section id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <p class="section-subtitle">Punya tawaran proyek, kolaborasi web/gim, atau sekadar ingin menyapa? Silakan hubungi saya!</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Left: Direct Message Form & Social Connect -->
+        <div class="contact-left-col">
+          <!-- Form Panel -->
+          <div class="contact-form-panel glass-panel">
+            <div class="contact-header">
+              <h3 class="contact-heading">Hubungi Farel</h3>
+              <p class="contact-subheading">Kirim pesan Anda dan langsung terhubung via WhatsApp otomatis!</p>
+            </div>
+
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="contact-name" class="input-label">Nama Anda</label>
+                <input type="text" id="contact-name" class="input-field" placeholder="Masukkan nama Anda" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email" class="input-label">Email Anda</label>
+                <input type="email" id="contact-email" class="input-field" placeholder="nama@email.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message" class="input-label">Pesan Anda</label>
+                <textarea id="contact-message" class="input-field" placeholder="Tuliskan pesan, tawaran kolaborasi, atau pertanyaan..." required></textarea>
+              </div>
+
+              <!-- Opsi Kirim: WhatsApp & Email -->
+              <div class="contact-actions-grid">
+                <button type="button" id="btn-submit-wa" class="btn-submit-action btn-submit-wa">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                  <span>Kirim WhatsApp 💬</span>
+                </button>
+                <button type="button" id="btn-submit-email" class="btn-submit-action btn-submit-email">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                  <span>Kirim Email ✉️</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Social Connect Panel -->
+          <div class="connect-panel glass-panel">
+            <h4 class="connect-panel-title">FIND ME</h4>
+            <div class="connect-cards-list">
+              <!-- WhatsApp Card -->
+              <a href="https://wa.me/6285113937232" target="_blank" rel="noopener" class="connect-card-item">
+                <div class="connect-card-icon" style="color: #25d366;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                  </svg>
+                </div>
+                <div class="connect-card-text">
+                  <span class="connect-card-name">WhatsApp</span>
+                  <span class="connect-card-handle">0851-1393-7232</span>
+                </div>
+              </a>
+
+              <!-- Instagram Card -->
+              <a href="https://instagram.com/fareljrr_" target="_blank" rel="noopener" class="connect-card-item">
+                <div class="connect-card-icon" style="color: #e1306c;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                </div>
+                <div class="connect-card-text">
+                  <span class="connect-card-name">Instagram</span>
+                  <span class="connect-card-handle">@fareljrr_</span>
+                </div>
+              </a>
+
+              <!-- Email Card -->
+              <a href="mailto:fareleljr@gmail.com" class="connect-card-item">
+                <div class="connect-card-icon" style="color: #38bdf8;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l9.518 7.714 9.518-7.714v11.817h-19.036z"/>
+                  </svg>
+                </div>
+                <div class="connect-card-text">
+                  <span class="connect-card-name">Gmail</span>
+                  <span class="connect-card-handle">fareleljr@gmail.com</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Guestbook (Komentar) -->
+        <div class="guestbook-panel glass-panel">
+          <div class="guestbook-header">
+            <h3 class="guestbook-heading">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              </svg>
+              <span>Komentar &amp; Pesan Tamu</span>
+            </h3>
+          </div>
+
+          <!-- Add Comment Form -->
+          <form class="guestbook-form" id="guestbook-form">
+            <div class="gb-inputs-row">
+              <input type="text" id="gb-name" class="input-field" placeholder="Nama Anda" required>
+              <div class="gb-avatar-picker">
+                <div class="gb-avatar-preview" id="gb-avatar-preview">👤</div>
+                <label class="btn-upload-photo" for="gb-avatar-upload">
+                  <span>Foto Profil (opsional)</span>
+                  <input type="file" id="gb-avatar-upload" accept="image/*" style="display: none;">
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 12px;">
+              <textarea id="gb-comment" class="input-field" style="min-height: 80px;" placeholder="Tulis komentar atau dukungan untuk Farel di sini..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit-comment">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+              <span>Kirim Komentar</span>
+            </button>
+          </form>
+
+          <!-- Live Comments Feed -->
+          <div class="comments-feed" id="comments-feed">
+            <!-- Dynamic comments injected by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       MODAL WINDOWS (Project Details & Lightbox)
+       ========================================================================== -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="modal-close-btn">&times;</button>
+      <div id="modal-content-body">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

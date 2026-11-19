@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="photoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+    <radialGradient id="lensFlare" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35" />
+      <stop offset="70%" stop-color="#6366f1" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#photoGrad)"/>
+  
+  <!-- Subtle grid lines for viewfinder / composition rule-of-thirds -->
+  <line x1="266" y1="0" x2="266" y2="500" stroke="#334155" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+  <line x1="533" y1="0" x2="533" y2="500" stroke="#334155" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+  <line x1="0" y1="166" x2="800" y2="166" stroke="#334155" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+  <line x1="0" y1="333" x2="800" y2="333" stroke="#334155" stroke-width="1" stroke-dasharray="4 6" opacity="0.4"/>
+
+  <!-- Center Lens Flare Glow -->
+  <circle cx="400" cy="220" r="180" fill="url(#lensFlare)"/>
+
+  <!-- Camera Graphic Center -->
+  <g transform="translate(400, 210)">
+    <!-- Outer Viewfinder / Frame corners -->
+    <path d="M-140,-100 L-110,-100 M-140,-100 L-140,-70" stroke="#38bdf8" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M140,-100 L110,-100 M140,-100 L140,-70" stroke="#38bdf8" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M-140,90 L-110,90 M-140,90 L-140,60" stroke="#38bdf8" stroke-width="3" fill="none" opacity="0.8"/>
+    <path d="M140,90 L110,90 M140,90 L140,60" stroke="#38bdf8" stroke-width="3" fill="none" opacity="0.8"/>
+
+    <!-- Camera Body -->
+    <rect x="-85" y="-55" width="170" height="115" rx="16" fill="#1e293b" stroke="#475569" stroke-width="2.5"/>
+    <!-- Top prism -->
+    <path d="M-35,-55 L-20,-75 L20,-75 L35,-55 Z" fill="#334155" stroke="#475569" stroke-width="2"/>
+    <!-- Shutter button & dial -->
+    <rect x="45" y="-66" width="22" height="11" rx="3" fill="#64748b"/>
+    <rect x="-65" y="-63" width="18" height="8" rx="2" fill="#64748b"/>
+    <!-- Red dot / recording accent -->
+    <circle cx="-55" cy="-28" r="4.5" fill="#ef4444"/>
+
+    <!-- Main Lens Rings -->
+    <circle cx="0" cy="5" r="46" fill="#0f172a" stroke="#64748b" stroke-width="3"/>
+    <circle cx="0" cy="5" r="37" fill="#1e1b4b" stroke="#38bdf8" stroke-width="2.5" opacity="0.9"/>
+    <circle cx="0" cy="5" r="26" fill="#090d16" stroke="#818cf8" stroke-width="2"/>
+    
+    <!-- Aperture Blades -->
+    <polygon points="-8,-5 12,-16 16,8 -2,14" fill="#6366f1" opacity="0.4"/>
+    <!-- Lens reflection highlights -->
+    <path d="M-16,-10 A22,22 0 0,1 12,-12" stroke="#ffffff" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+  </g>
+
+  <!-- Title Text -->
+  <text x="400" y="380" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">
+    VISUAL ARTS &amp; FOTOGRAFI
+  </text>
+  <text x="400" y="415" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="600" fill="#94a3b8" text-anchor="middle" letter-spacing="2">
+    FRAMING • LIGHTING • STORYTELLING
+  </text>
+  <rect x="310" y="440" width="180" height="28" rx="14" fill="rgba(56, 189, 248, 0.12)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1"/>
+  <text x="400" y="459" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="0.5">
+    📸 Foto Sedang Dikurasi
+  </text>
+</svg>
