@@ -498,8 +498,8 @@ const projectData = {
       "Visualisasi progres target keuangan bulanan & mingguan dengan persentase capaian.",
       "Audit trail pencatatan riwayat transaksi dan catatan bersama yang transparan."
     ],
-    demoUrl: "https://fareljrr.github.io/savings-journal",
-    githubUrl: "https://github.com/fareljrr"
+    demoUrl: "https://farelel30-cmd.github.io/our-savings-journal/",
+    githubUrl: "https://github.com/farelel30-cmd/our-savings-journal"
   },
   chat: {
     title: "Real-time Chat Application",
@@ -513,8 +513,8 @@ const projectData = {
       "Sistem login & otentikasi privat dengan Firebase Authentication.",
       "Tampilan chat modern bernuansa pastel yang sangat nyaman diakses dari smartphone maupun PC."
     ],
-    demoUrl: "https://fareljrr.github.io/realtime-chat",
-    githubUrl: "https://github.com/fareljrr"
+    demoUrl: "https://farelel30-cmd.github.io/ustwo-chat/",
+    githubUrl: "https://github.com/farelel30-cmd/ustwo-chat"
   },
   uks_game: {
     title: "Gim Simulasi Edukasi UKS 2D",
@@ -529,7 +529,7 @@ const projectData = {
       "Sistem lencana pencapaian (achievement badges) dan edukasi pola hidup sehat remaja."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/fareljrr"
+    githubUrl: "https://github.com/farelel30-cmd"
   },
   blender_3d: {
     title: "3D Asset Modeling & Scene",
@@ -543,7 +543,7 @@ const projectData = {
       "Pembuatan tekstur dan material prosedural PBR (Roughness, Metallic, Normal)."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/fareljrr"
+    githubUrl: "https://github.com/farelel30-cmd"
   },
   uiux_figma: {
     title: "UI/UX Design - Petualangan Nusantara",
@@ -557,7 +557,7 @@ const projectData = {
       "Penerapan hierarki visual yang jelas antara tombol Play, Credit, dan latar belakang pemandangan."
     ],
     demoUrl: "#",
-    githubUrl: "https://github.com/fareljrr"
+    githubUrl: "https://github.com/farelel30-cmd"
   },
   photography: {
     title: "Visual Arts & Fotografi",
